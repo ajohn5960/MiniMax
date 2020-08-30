@@ -189,10 +189,16 @@ int aiPickIdx(char board[N][N], bool boardFilled, bool aiTurn) {
 
 
 }
-int aiPickIdxHelper(int depth, char board[N][N], int coord, bool boardFilled, bool aiTurn, int maxEval, int minEval) {
+/*  
+MINIMAX IMPLEMENTATION
+if x wins return -1  (min)
+if o wins return 1  (max)
+else return 0
+*/
+int aiPickIdxHelper(int depth, char board[N][N], int coord, bool boardFilled, bool aiTurn, int maxEval, int minEval) { 
     int randCoord = 0;
-    //save a copy of OG board
-    //check if changed board is equal to OG board, if it is that means reached root of tree so return position not max val
+    //save a copy of original board
+    //check if changed board is equal to original board, if it is that means reached root of tree so return position not max val
     int eval;
     int saveMaxEval;
     int saveMinEval;
