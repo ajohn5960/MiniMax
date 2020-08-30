@@ -17,6 +17,10 @@ char board[N][N] = { {'_', '_', '_'}, {'_', '_', '_'} , {'_', '_', '_'} };
 int aiCounter[M] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 int humanCounter[M]{ 0, 0, 0, 0, 0, 0, 0, 0 };
 
+    // both counter arr stores the number of pieces of a particular row, col, or diagonal
+    // each idx keeps track of the count -> counter arr = [1st row, 2nd row, 3rd row, 1st col, 2nd col, 3rd col, right diagonal, left diagonal]
+    // after each turn must update count
+
 void menu(char board[N][N], int aiCounter[M], int humanCounter[M]);
 void runGame(char board[N][N], int aiCounter[], int humanCounter[]);
 void humanMarkBoard(char board[N][N]);
@@ -190,7 +194,9 @@ int aiPickIdx(char board[N][N], bool boardFilled, bool aiTurn) {
 
 }
 /*  
-MINIMAX IMPLEMENTATION
+________________________________________
+MINIMAX IMPLEMENTATION - aiPickIdxHelper
+________________________________________
 if x wins return -1  (min)
 if o wins return 1  (max)
 else return 0
